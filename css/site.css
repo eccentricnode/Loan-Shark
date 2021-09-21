@@ -44,6 +44,10 @@ footer .social>a:hover{
     color: rgb(11, 82, 214);
 }
 
+.tableHeadingColor{
+    background-color: var(--primary-color);
+}
+
 .checklist >li i{
     color: var(--secondary-color);
 }
