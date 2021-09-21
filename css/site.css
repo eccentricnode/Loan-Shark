@@ -1,0 +1,71 @@
+:root {
+    --primary-color: #263D5B;
+    --secondary-color: #ff993b;
+    --dark-color: #292929;
+    --white-color: #dff3e4;   
+}
+
+body {
+    color: var(--dark-color);
+}
+
+nav {
+    background-color: var(--primary-color);
+
+}
+
+footer {
+    background-color: var(--primary-color);
+}
+
+footer .social>a{
+    color: var(--white-color);
+    opacity: 0.75;
+}
+
+footer .social>a:hover{
+    opacity: .90;
+    color: var(--secondary-color);
+}
+
+.bsicon {
+    color: purple
+}
+
+.jsicon {
+    color: rgb(255, 230, 0);
+}
+
+.html5icon {
+    color: orangered;
+}
+
+.css3icon {
+    color: rgb(11, 82, 214);
+}
+
+.checklist >li i{
+    color: var(--secondary-color);
+}
+
+code[class*="language-"], pre[class*="language-"] {            
+
+    white-space: pre-wrap;            
+
+    word-break: break-all;
+
+    word-wrap: break-word;  
+
+    font-size: 1.5rem;                      
+
+}
+
+main>.container {
+    padding: 60px 15px 0;
+}
+.sticky-nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
