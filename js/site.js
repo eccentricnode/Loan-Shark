@@ -9,30 +9,61 @@ function getValues(){
 
     if (Number.isInteger(loanAmt) && Number.isInteger(payments) && Number.isInteger(interestRate)) {
         
-        calculateLoan(loanAmt, payments, interestRate);
+        loanData = calculateLoan(loanAmt, payments, interestRate);
 
-        displayLoan();
+        displayLoan(loanData);
     } else {
         alert("You must only enter numbers.")
     }
 }
 
 function calculateLoan(loanAmt, payments, interestRate) {
+    const loanData = [];
+    let remainingBalance = loanAmt;
+    // interest amount, beginning after the first payment.
+    let currentTotalInterest = 0;
+
     totalMonthlyPayment = (loanAmt * (interestRate / 1200) / (1 - (1 + (interestRate / 1200))**(-60)));
     totalCost = totalMonthlyPayment * payments;
+
+    // interest for entire payment period
     totalInterest = totalCost - loanAmt;
 
     console.log(totalMonthlyPayment);
     console.log(totalCost);
     console.log(totalInterest);
 
-    for (let index = 0; index <= payments; index++) {
+
+    for (let index = 1; index <= payments; index++) {
+        let paymentObj = {};
+
+        individualMonthlyInterest = remainingBalance * (3/1200);
+
+        // calculate the principal for each month
+        monthlyPrincipal = totalMonthlyPayment - individualMonthlyInterest;
         
+        // calculate incremental total interest.
+        currentTotalInterest = currentTotalInterest + individualMonthlyInterest;
+
+        // calculate remaining balance (previous remaining balance - principal payments)
+        currentRemainingBalance = remainingBalance - totalMonthlyPayment;
+
+
+
+        paymentObj.month = index;
+        paymentObj.monthlyPayment = Math.round(100*totalMonthlyPayment)/100;
+        paymentObj.monthlyPrincipal = Math.round(100*monthlyPrincipal)/100;
+        paymentObj.individualMonthlyInterest = Math.round(100*individualMonthlyInterest)/100;
+        paymentObj.currentTotalInterest = Math.round(100*currentTotalInterest)/100;
+        paymentObj.currentRemainingBalance = Math.round(100*currentRemainingBalance)/100;
+
+        loanData.push(paymentObj);
     }
+    return loanData;
 }
 
-function displayLoan() {
-
+function displayLoan(loanData) {
+    console.log(loanData);
 }
 
 
