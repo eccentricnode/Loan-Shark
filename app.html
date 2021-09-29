@@ -76,7 +76,7 @@
                 <div class="col-lg-6 col">
                     <div class="text-center mb-5 pb-4">
                         <h1>Your Monthly payments</h1>
-                        <h2>Monthly Payment goes here</h2>
+                        <h2>$$$<span id="monthlyPayment"></span></h2>
                     </div>
                     <div class="container">
                         <div class="row">
@@ -87,9 +87,9 @@
                             </div>
                             <div class="col">
                                 <!-- placeholder -->
-                                <p>Total Principal</p>
-                                <p>Total Interest</p>
-                                <p>Total cost</p>
+                                <p>$<span id="totalPrincipal">0.00</span></p>
+                                <p>$<span id="totalInterest">0.00</span></p>
+                                <p>$<span id="totalCost">0.00</span></p>
                             </div>
                         </div>
                     </div>
@@ -167,6 +167,9 @@
 
     <!-- Custom JS -->
     <script src="js/site.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getValues)
+    </script>
 </body>
 
 </html>
